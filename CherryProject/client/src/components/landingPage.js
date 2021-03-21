@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import _ from 'lodash'
+import '../globalVariables/globalVars.js'
 
 const pageSize = 50
 
@@ -24,7 +25,7 @@ const Main = (props) => {
   ) => {
     axios
       .get(
-        `https://cherry-project.herokuapp.com/cities/listOfAllCities?name=${cityName}&province=${province}&cityCode=${cityCode}&isSuppressed=${isSuppressed}&suppressionDate=${suppressionDate}`,
+        `${global.URL}cities/listOfAllCities?name=${cityName}&province=${province}&cityCode=${cityCode}&isSuppressed=${isSuppressed}&suppressionDate=${suppressionDate}`,
         { headers: { 'Access-Control-Allow-Origin': 'true' } }
       )
       .then((res) => {
